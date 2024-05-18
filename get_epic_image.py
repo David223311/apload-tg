@@ -3,11 +3,12 @@ import requests
 import datetime
 from download_images import download_image
 from dotenv import load_dotenv
-score = 5
+
 
 def get_epic_images():
+    count = 5
     url = "https://api.nasa.gov/EPIC/api/natural/image"
-    params = {"api_key": os.environ['NASA_API'], "count": score}
+    params = {"api_key": os.environ['NASA_API'], "count": count}
     response = requests.get(url, params=params)
     response.raise_for_status()
     for epic_images in response.json():
