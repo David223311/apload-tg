@@ -5,7 +5,7 @@ from download_images import download_image
 from dotenv import load_dotenv
 score = 30
 
-def file_extension(url):
+def extension_file(url):
     decoder_url = unquote(url)
     parsed_url = urlparse(decoder_url)
     change_path, fullname = os.path.split(parsed_url.path)
