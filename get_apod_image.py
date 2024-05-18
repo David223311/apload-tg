@@ -3,7 +3,6 @@ from urllib.parse import unquote, urlparse
 import requests
 from download_images import download_image
 from dotenv import load_dotenv
-score = 30
 
 def extension_file(url):
     decoder_url = unquote(url)
@@ -14,8 +13,9 @@ def extension_file(url):
 
 
 def get_apod_images():
+    count = 30
     url = "https://api.nasa.gov/planetary/apod"
-    params = {"api_key": os.environ['NASA_API'], "count": score}
+    params = {"api_key": os.environ['NASA_API'], "count": count}
     response = requests.get(url, params=params)
     for apoad_images in response.json():
         if apoad_images.get("media_type") == "image":
