@@ -3,14 +3,14 @@ import requests
 import datetime
 from download_images import download_image
 from dotenv import load_dotenv
+score = 5
 
-
-def get_epic_image():
+def get_epic_images():
     url = "https://api.nasa.gov/EPIC/api/natural/image"
-    params = {"api_key": os.environ['NASA_API'], "count": 5}
+    params = {"api_key": os.environ['NASA_API'], "count": score}
     response = requests.get(url, params=params)
     response.raise_for_status()
-    for epic_image in response.json():
+    for epic_images in response.json():
         data = epic_image["date"]
         name = epic_image["image"]
         photo_date = datetime.datetime.fromisoformat(data)
@@ -22,7 +22,7 @@ def get_epic_image():
 
 def main():
     load_dotenv()
-    get_epic_image()
+    get_epic_images()
 
 
 if __name__ == '__main__':
