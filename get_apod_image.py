@@ -4,6 +4,7 @@ import requests
 from download_images import download_image
 from dotenv import load_dotenv
 
+
 def extension_file(url):
     decoder_url = unquote(url)
     parsed_url = urlparse(decoder_url)
@@ -12,7 +13,7 @@ def extension_file(url):
     return filename, extension
 
 
-def get_apod_images():
+def get_apod_images(nasa_key):
     count = 30
     url = "https://api.nasa.gov/planetary/apod"
     params = {"api_key": nasa_key, "count": count}
@@ -31,8 +32,8 @@ def get_apod_images():
 
 def main():
     load_dotenv()
-    get_apod_images()
     nasa_key = os.environ['NASA_API']
+    get_apod_images(nasa_key)
 
 
 if __name__ == '__main__':
