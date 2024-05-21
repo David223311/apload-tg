@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 
 def get_epic_images():
-    nasa_key = os.environ['NASA_API']
     count = 5
     url = "https://api.nasa.gov/EPIC/api/natural/image"
     params = {"api_key":nasa_key , "count": count}
@@ -25,7 +24,7 @@ def get_epic_images():
 def main():
     load_dotenv()
     get_epic_images()
-
+    nasa_key = os.environ['NASA_API']
 
 if __name__ == '__main__':
     main()
