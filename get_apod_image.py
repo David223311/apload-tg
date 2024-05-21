@@ -22,9 +22,7 @@ def get_apod_images(nasa_key):
     for apoad_images in response.json():
         if apoad_images.get("media_type") == "image":
             if apoad_images.get("url"):
-                apoad_link = apoad_image["hdurl"]
-            else:
-                apoad_link = apoad_image["url"]
+                apoad_link = apoad_images["hdurl"] or apoad_images["url"]
         filename, extension = file_extension(apoad_link)
         path = os.path.join("images", f"{filename}{extension}")
         download_image(apoad_link, path)
