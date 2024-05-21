@@ -13,7 +13,6 @@ def extension_file(url):
 
 
 def get_apod_images():
-    nasa_key = os.environ['NASA_API']
     count = 30
     url = "https://api.nasa.gov/planetary/apod"
     params = {"api_key": nasa_key, "count": count}
@@ -33,6 +32,7 @@ def get_apod_images():
 def main():
     load_dotenv()
     get_apod_images()
+    nasa_key = os.environ['NASA_API']
 
 
 if __name__ == '__main__':
