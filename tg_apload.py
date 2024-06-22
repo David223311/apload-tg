@@ -7,8 +7,8 @@ import telegram
 
 def main():
     load_dotenv()
-    chat_id = os.environ['CHAT_ID_TG']
-    bot = telegram.Bot(token=os.environ['TOKEN_TG'])
+    chat_id = os.environ['TG_CHAT_ID']
+    bot = telegram.Bot(token=os.environ['TG_TOKEN'])
     time_between_sending = 14400
     while True:
         folder = 'images'
