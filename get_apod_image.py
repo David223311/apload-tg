@@ -5,7 +5,7 @@ from download_images import download_image
 from dotenv import load_dotenv
 
 
-def file_extension(url):
+def get_file_extension(url):
     decoder_url = unquote(url)
     parsed_url = urlparse(decoder_url)
     change_path, fullname = os.path.split(parsed_url.path)
@@ -23,7 +23,7 @@ def get_apod_images(nasa_key):
         if apoad_images.get("media_type") == "image":
             if apoad_images.get("url"):
                 apoad_link = apoad_images["hdurl"] or apoad_images["url"]
-        filename, extension = file_extension(apoad_link)
+        filename, extension = get_file_extension(apoad_link)
         path = os.path.join("images", f"{filename}{extension}")
         download_image(apoad_link, path)
 
