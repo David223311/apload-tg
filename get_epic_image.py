@@ -12,8 +12,8 @@ def get_epic_images(nasa_key):
     response = requests.get(url, params=params)
     response.raise_for_status()
     for epic_images in response.json():
-        data = epic_image["date"]
-        name = epic_image["image"]
+        data = epic_images["date"]
+        name = epic_images["image"]
         photo_date = datetime.datetime.fromisoformat(data)
         photo_date = photo_date.strftime("%Y/%m/%d")
         url = f"https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{name}.png"
@@ -23,7 +23,7 @@ def get_epic_images(nasa_key):
 
 def main():
     load_dotenv()
-    nasa_key = os.environ['NASA_API']
+    nasa_key = os.environ['NASA_TOKEN']
     get_epic_images(nasa_key)
     
 

@@ -35,7 +35,7 @@ python tg_apload.py
 
 Пример содержания файла `.env`:
 ```
-NASA_API = "nasa-token"
+NASA_TOKEN = "nasa-token"
 TG_TOKEN = "bot-token"
 TG_CHAT_ID = "@chat_id"
 ```

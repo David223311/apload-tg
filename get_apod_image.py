@@ -30,7 +30,7 @@ def get_apod_images(nasa_key):
 
 def main():
     load_dotenv()
-    nasa_key = os.environ['NASA_API']
+    nasa_key = os.environ['NASA_TOKEN']
     get_apod_images(nasa_key)
 
 
